@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="indexstyle.css">
     <title>Password Generator</title>
 </head>
 <body>
@@ -12,6 +13,18 @@
         <p>Never use an insecure password again.</p>
         </div>
         <div class="specification">
+            <div class="toggle-wrapper">
+                <label for="symbol-chk-box">Symbols</label>
+                <span>Off</span>
+                <input type="checkbox" id="symbol-chk-box" checked >
+                <span>On</span>
+                
+            </div>
+            <div class="toggle-wrapper">
+                <input type="checkbox" id="number-chk-box" checked>
+                <label for="number-chk-box">Numbers</label>
+            </div>
+
             <label>Password length (8-20): </label>
             <input id="user-length-input">
             <span id="alert-message"></span>

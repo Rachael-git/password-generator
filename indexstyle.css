@@ -1,0 +1,36 @@
+.toggle-wrapper {
+    display: flex;
+    align-items: center;
+}
+.toggle-wrapper > input {
+    appearance: none;
+    position: relative;
+    width: 2.5rem;
+    height: 1.5rem;
+    border-radius: 25px;
+    background-color: rgb(143, 218, 199);
+    transition: background 0.3s;
+    outline: none;
+    cursor: pointer;
+}
+
+.toggle-wrapper > input::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    height: 1rem;
+    width: 1rem;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%; 
+    transition:  left 0.3s;
+}
+
+.toggle-wrapper > input:checked {
+    background-color: rgb(45, 143, 118);
+}   
+
+.toggle-wrapper > input:checked::after {
+    left: 70%
+}

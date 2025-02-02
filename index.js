@@ -1,46 +1,94 @@
 const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"];
+const symbolArray = ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"];
+
+const passwordOne = document.getElementById("password-one")
+const passwordTwo = document.getElementById("password-two")
+const userLenghtInput = document.getElementById("user-length-input")
+
+const symbolChkBx = document.getElementById("symbol-chk-box")
+const numberChkBx = document.getElementById("number-chk-box")
+
+let pwDefaultLenght = 15;
 let firstPw = ""
 let secondPw = ""
-let passwordOne = document.getElementById("password-one")
-let passwordTwo = document.getElementById("password-two")
-let pwDefaultLenght = 15;
+
+
 
 document.getElementById("generateBtn").onclick = function () {
     firstPw = ""
     secondPw = ""
     passwordOne.textContent = firstPw
     passwordTwo.textContent  = secondPw
-    let userLenghtInput = document.getElementById("user-length-input").value
-   checkInput(userLenghtInput)
+    let passwordLength = checkLenghtInput(userLenghtInput.value)
+    
+    if (!symbolChkBx.checked && numberChkBx.checked) {
+        
+        generatePassword(passwordLength, noSymRequest())
+
+    } else if (!numberChkBx.checked && symbolChkBx.checked ) {
+        
+        generatePassword(passwordLength, noNumRequest())
+        
+    } else if (!symbolChkBx.checked && !numberChkBx.checked){
+       
+        generatePassword(passwordLength,noSymAndNumRequest() )
+
+    } else {
+
+        generatePassword(passwordLength,characters)
+        
+    }
 
 }
 
-function checkInput(userLenghtInput) {
-   if (userLenghtInput == "" ) {
-        generatePassword(pwDefaultLenght)
-   } else {
-        if (isNaN(userLenghtInput)) {
-            document.getElementById("alert-message").textContent = "Must enter only a number between 8 to 20"
+function checkLenghtInput(userLenghtInput) {
+    if (userLenghtInput == "" ) {
+        return pwDefaultLenght
+    } else {
+         if (isNaN(userLenghtInput) || userLenghtInput < 8 || userLenghtInput > 20 ) {
+            document.getElementById("alert-message").textContent = "Must enter a number between 8 to 20"
         } else {
-           
-            if (userLenghtInput < 8 || userLenghtInput > 20) {
-                document.getElementById("alert-message").textContent = "Please input a number between 8 to 20"
-            } else {
-                generatePassword(userLenghtInput)
-            }
+            document.getElementById("alert-message").textContent = " "
+            return userLenghtInput
         }
     }
 }
-
-
-function generatePassword (len){
-    for(let i = 0; i < len; i++) {
-        firstPw += characters[Math.floor(Math.random() * characters.length)]
-        secondPw += characters[Math.floor(Math.random() * characters.length)]
+function noSymRequest(){
+ //not include symbols into passwords//
+    
+    let noSymbols = []
+    for (let i = 0; i < characters.length; i++ ){
+        if (!symbolArray.includes(characters[i])) {
+        noSymbols.push(characters[i])
+        }
     }
-
-    passwordOne.textContent = firstPw + " " + firstPw.length
-    passwordTwo.textContent  = secondPw + " " + secondPw.length
-
-    document.getElementById("alert-message").textContent = ""
+    return noSymbols   
 }
+function noNumRequest() {
+//not include numbers into passwords//
+    let noNums = []
+    for (let i = 0; i < characters.length; i++ ){
+        if (isNaN(characters[i])) {
+         noNums.push(characters[i])
+        }
+    }
+    return noNums
+}
+function noSymAndNumRequest() {
+    let noSymsAndnum = []
+    for (let i = 0; i < characters.length; i++) {
+        if (isNaN(characters[i]) && !symbolArray.includes(characters[i])) {
+            noSymsAndnum.push(characters[i])
+        }
+    }
+    return noSymsAndnum
+}
+function generatePassword (passwordLen, charArray ) {
+    for(let i = 0; i < passwordLen; i++){
+        firstPw += charArray[Math.floor(Math.random() * charArray.length)]
+        secondPw += charArray[Math.floor(Math.random() * charArray.length)]
+    }
+    passwordOne.textContent = firstPw
+    passwordTwo.textContent = secondPw
+}
+
