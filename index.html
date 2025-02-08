@@ -3,36 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="indexstyle.css">
     <title>Password Generator</title>
 </head>
 <body>
     <main>
-        <div class="title">
-        <h1>Generate a random password</h1>
-        <p>Never use an insecure password again.</p>
-        </div>
-        <div class="specification">
+        
+        <h1 class="heading">Generate a 
+        <span class="green-text">random password</span></h1>
+        <p class="supporting">Never use an insecure password again.</p>
+      
+       
+        <div class="toggle-container">
             <div class="toggle-wrapper">
-                <label for="symbol-chk-box">Symbols</label>
-                <span>Off</span>
                 <input type="checkbox" id="symbol-chk-box" checked >
-                <span>On</span>
-                
+                <label for="symbol-chk-box">Symbols</label>
             </div>
+            
             <div class="toggle-wrapper">
                 <input type="checkbox" id="number-chk-box" checked>
                 <label for="number-chk-box">Numbers</label>
             </div>
-
-            <label>Password length (8-20): </label>
-            <input id="user-length-input">
-            <span id="alert-message"></span>
+        
         </div>
+
+        <div id="length-container">
+            <label for="user-length-input">Password length (8-20): </label>
+            <div class="msg-alert">
+                <input type="text" id="user-length-input"  size="10" onfocus="inputFocused()">
+                
+                <p id="alert-message"></p>     
+            </div>          
+        </div>
+       
         <button id="generateBtn">Generate passwords</button>
         <hr>
-        <p id="password-one"></p>
-        <p id="password-two"></p>
+        <div class="password-container">
+            <p id="password-one" class="password"></p>
+            <p id="password-two" class="password"></p>
+        </div>
     </main>
     <script src="index.js"></script>
 </body>

@@ -1,36 +1,138 @@
-.toggle-wrapper {
-    display: flex;
-    align-items: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.toggle-wrapper > input {
+body {
+    background-color: #1c1c1c;
+    font-family: "Karla", serif;
+}
+
+main{
+    background-color: #1F2937;
+    width: 550px;
+    margin: 50px auto;
+    
+    color: #D5D4D8;
+    padding: 50px;
+}
+.heading{
+    font-weight: 800;
+    font-size: 2.5rem;
+    white-space: pre-line;
+}
+.green-text {
+    color:#55F991;
+}
+.supporting{
+    font-size: 1.25rem;
+    font-weight: 400;   
+
+}
+
+
+
+.toggle-container{
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.25rem;
+    width: 95%;
+    margin: 2rem 0 1rem ;
+}
+.toggle-wrapper {
+    margin: 0 5px;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+input[type=checkbox] {
     appearance: none;
     position: relative;
-    width: 2.5rem;
-    height: 1.5rem;
+    width: 2.3rem;
+    height: 1rem;
     border-radius: 25px;
-    background-color: rgb(143, 218, 199);
+    background-color: #7c7c7c;
     transition: background 0.3s;
     outline: none;
     cursor: pointer;
 }
-
-.toggle-wrapper > input::after {
+input[type=checkbox]::after {
     content: "";
     position: absolute;
     background-color: rgb(255, 255, 255);
-    height: 1rem;
-    width: 1rem;
+    height: 1.3rem;
+    width: 1.3rem;
     top: 50%;
-    left: 30%;
+    left: 70%;
     transform: translate(-50%, -50%);
     border-radius: 50%; 
     transition:  left 0.3s;
 }
-
-.toggle-wrapper > input:checked {
-    background-color: rgb(45, 143, 118);
+input[type=checkbox]:checked {
+    background-color: #10B981;
 }   
+input[type=checkbox]:checked::after {
+    left: 30%
+}
 
-.toggle-wrapper > input:checked::after {
-    left: 70%
+
+
+#length-container {
+    text-align: left;
+    display: flex;
+    align-items: baseline;
+    width: 95%;
+    margin-bottom: 2rem;
+}
+input[type="text"] {
+    background-color: #273549;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    margin-left: 1ch;
+}
+#alert-message {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #da4b6a;
+}
+
+
+button {
+    background-color: #10B981;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+
+hr {
+    margin: 2rem auto;
+    border: 1px solid #2F3E53;
+}
+
+
+.password-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.25rem;
+    width: 95%;
+}
+.password {
+    width: 70%;
+    height: 2.5rem;
+    padding-top: 0.5rem;
+    background-color: #273549;
+    color: #55F991;
+    text-align: center;
+    border-radius: 0.25rem;
 }
