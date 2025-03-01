@@ -53,10 +53,10 @@ function checkLenghtInput(userLenghtInput) {
         return pwDefaultLenght
     } else {
          if (isNaN(userLenghtInput) || userLenghtInput < 8 || userLenghtInput > 20 ) {
-            document.getElementById("alert-message").textContent = "Must enter a number between 8 to 20"
-            document.getElementById("length-container").style.marginBottom = "calc(2rem - 1ch)"
+            document.getElementById("alert-message").style.visibility = "visible"
+           
         } else {
-            document.getElementById("alert-message").textContent = " "
+            document.getElementById("alert-message").style.visibility = "hidden"
             return userLenghtInput
         }
     }
@@ -105,9 +105,11 @@ function generatePassword (passwordLen, charArray ) {
 }
 
 // to clear input value when focusihg on input text //
-function inputFocused() {
-    document.getElementById("alert-message").textContent = ""
+document.getElementById("user-length-input").addEventListener("focus", () => {
+    // document.getElementById("alert-message").style.visibility = "hidden"
     userLenghtInput.value = ""
-    document.getElementById("length-container").style.marginBottom = "2rem"
-}
+   
+})
+
+    
 

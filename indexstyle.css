@@ -80,13 +80,12 @@ input[type=checkbox]:checked::after {
 }
 
 
-
 #length-container {
     text-align: left;
     display: flex;
     align-items: baseline;
     width: 95%;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
 }
 input[type="text"] {
     background-color: #273549;
@@ -100,6 +99,7 @@ input[type="text"] {
     font-size: 0.85rem;
     font-weight: 600;
     color: #da4b6a;
+    visibility: hidden;
 }
 
 
