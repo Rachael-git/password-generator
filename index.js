@@ -4,8 +4,6 @@
 // - Toggle " symbols" and  "numbers" on/off -> DONE
 // - Add copy - on - click
 
-
-
 const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"];
 const symbolArray = ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"];
 
@@ -62,10 +60,8 @@ function checkLenghtInput(userLenghtInput) {
     }
 }
 
-
-function noSymRequest(){
  //not include symbols into passwords//
-    
+function noSymRequest(){
     let noSymbols = []
     for (let i = 0; i < characters.length; i++ ){
         if (!symbolArray.includes(characters[i])) {
@@ -74,8 +70,10 @@ function noSymRequest(){
     }
     return noSymbols   
 }
-function noNumRequest() {
+
 //not include numbers into passwords//
+function noNumRequest() {
+
     let noNums = []
     for (let i = 0; i < characters.length; i++ ){
         if (isNaN(characters[i])) {
@@ -84,6 +82,8 @@ function noNumRequest() {
     }
     return noNums
 }
+
+//not include symbols and numbers into passwords//
 function noSymAndNumRequest() {
     let noSymsAndnum = []
     for (let i = 0; i < characters.length; i++) {
@@ -93,7 +93,6 @@ function noSymAndNumRequest() {
     }
     return noSymsAndnum
 }
-
 
 function generatePassword (passwordLen, charArray ) {
     for(let i = 0; i < passwordLen; i++){
