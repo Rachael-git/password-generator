@@ -14,15 +14,14 @@ const userLenghtInput = document.getElementById("user-length-input")
 const symbolChkBx = document.getElementById("symbol-chk-box")
 const numberChkBx = document.getElementById("number-chk-box")
 
-let pwDefaultLenght = 15;
+
 let firstPw = ""
 let secondPw = ""
 
-document.getElementById("generateBtn").onclick = function () {
+document.getElementById("generateBtn").addEventListener('click', () => {
+    
     firstPw = ""
     secondPw = ""
-    passwordOne.textContent = firstPw
-    passwordTwo.textContent  = secondPw
     
     let passwordLength = checkLenghtInput(userLenghtInput.value)
 
@@ -44,11 +43,11 @@ document.getElementById("generateBtn").onclick = function () {
         
     }
 
-}
+})
 
 function checkLenghtInput(userLenghtInput) {
     if (userLenghtInput == "" ) {
-        return pwDefaultLenght
+        return 15
     } else {
          if (isNaN(userLenghtInput) || userLenghtInput < 8 || userLenghtInput > 20 ) {
             document.getElementById("alert-message").style.visibility = "visible"
@@ -107,7 +106,6 @@ function generatePassword (passwordLen, charArray ) {
 document.getElementById("user-length-input").addEventListener("focus", () => {
     // document.getElementById("alert-message").style.visibility = "hidden"
     userLenghtInput.value = ""
-   
 })
 
     
